@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="26" viewBox="0 0 1200 26" fill="none">
+  <defs>
+    <linearGradient id="traceGrad" x1="0" y1="13" x2="1200" y2="13" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#38bdf8" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.85"/>
+      <stop offset="75%" stop-color="#10b981" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="pGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <style>
+    @keyframes pulseLeft {
+      0% { transform: translateX(0px); opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { transform: translateX(-540px); opacity: 0; }
+    }
+    @keyframes pulseRight {
+      0% { transform: translateX(0px); opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { transform: translateX(540px); opacity: 0; }
+    }
+    .p-left { animation: pulseLeft 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    .p-right { animation: pulseRight 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  </style>
+  <line x1="20" y1="13" x2="1180" y2="13" stroke="url(#traceGrad)" stroke-width="1.5"/>
+  <circle cx="300" cy="13" r="3" fill="#38bdf8" fill-opacity="0.6"/>
+  <circle cx="900" cy="13" r="3" fill="#10b981" fill-opacity="0.6"/>
+  <polygon points="600,5 608,13 600,21 592,13" fill="#0f172a" stroke="#a78bfa" stroke-width="1.5"/>
+  <circle cx="600" cy="13" r="2.2" fill="#38bdf8"/>
+  <circle cx="590" cy="13" r="3" fill="#38bdf8" filter="url(#pGlow)" class="p-left"/>
+  <circle cx="610" cy="13" r="3" fill="#10b981" filter="url(#pGlow)" class="p-right"/>
+</svg>

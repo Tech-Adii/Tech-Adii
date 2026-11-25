@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="176" viewBox="0 0 1200 176" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="176" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0" y1="0" x2="1200" y2="176" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.55"/>
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="nameGrad" x1="340" y1="55" x2="860" y2="115" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#bae6fd"/>
+      <stop offset="100%" stop-color="#ddd6fe"/>
+    </linearGradient>
+    <linearGradient id="scanGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="cardClip">
+      <rect x="1" y="1" width="1198" height="174" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'SFMono-Regular', monospace; }
+    .sans { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif; }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+    @keyframes sweep {
+      0% { transform: translateX(-280px); }
+      100% { transform: translateX(1200px); }
+    }
+    .dot-pulse { animation: pulseDot 2.2s ease-in-out infinite; transform-origin: 36px 29px; }
+    .scan-bar { animation: sweep 4.2s ease-in-out infinite; }
+  </style>
+
+  <!-- Card Background & Subtle Grid -->
+  <rect x="1" y="1" width="1198" height="174" rx="14" fill="url(#bg)" stroke="url(#borderGrad)" stroke-width="1.5"/>
+  <g clip-path="url(#cardClip)" opacity="0.06">
+    <path d="M0 44 H1200 M0 88 H1200 M0 132 H1200 M200 0 V176 M400 0 V176 M600 0 V176 M800 0 V176 M1000 0 V176" stroke="#38bdf8" stroke-width="1"/>
+  </g>
+
+  <!-- Corner PCB Accents -->
+  <path d="M18 158 H42 L54 146" stroke="#38bdf8" stroke-opacity="0.35" stroke-width="1.2"/>
+  <circle cx="56" cy="144" r="2.5" fill="#38bdf8" fill-opacity="0.55"/>
+  <path d="M1182 158 H1158 L1146 146" stroke="#8b5cf6" stroke-opacity="0.35" stroke-width="1.2"/>
+  <circle cx="1144" cy="144" r="2.5" fill="#8b5cf6" fill-opacity="0.55"/>
+
+  <!-- Top Status Row -->
+  <circle cx="36" cy="29" r="7" fill="#10b981" fill-opacity="0.22"/>
+  <circle cx="36" cy="29" r="4" fill="#10b981" filter="url(#glow)" class="dot-pulse"/>
+  <text x="52" y="33" fill="#34d399" font-size="11.5" font-weight="600" letter-spacing="1.4" class="mono">SYSTEM ONLINE · RVCE BENGALURU · CLASS OF 2029</text>
+
+  <rect x="896" y="16" width="280" height="26" rx="13" fill="#1e293b" fill-opacity="0.7" stroke="#334155" stroke-width="1"/>
+  <text x="1036" y="33" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="600" letter-spacing="1.1" class="mono">@TECH-ADII // SILICON → AI</text>
+
+  <!-- Main Name & Tagline -->
+  <text x="600" y="96" text-anchor="middle" fill="url(#nameGrad)" font-size="44" font-weight="800" letter-spacing="3.5" class="sans">ADITHYA R KULKARNI</text>
+  <text x="600" y="132" text-anchor="middle" fill="#94a3b8" font-size="15.5" font-weight="500" letter-spacing="0.8" class="sans">
+    <tspan fill="#38bdf8" font-weight="600">AI Systems</tspan>
+    <tspan fill="#475569">  •  </tspan>
+    <tspan fill="#e2e8f0">On-Device Computer Vision</tspan>
+    <tspan fill="#475569">  •  </tspan>
+    <tspan fill="#a78bfa" font-weight="600">ML Security</tspan>
+    <tspan fill="#475569">  •  </tspan>
+    <tspan fill="#34d399" font-weight="600">Embedded IoT &amp; Robotics</tspan>
+  </text>
+
+  <!-- Bottom Sweeping Light Trace -->
+  <g clip-path="url(#cardClip)">
+    <rect x="0" y="172" width="1200" height="3" fill="#1e293b" fill-opacity="0.6"/>
+    <rect x="0" y="172" width="280" height="3" fill="url(#scanGrad)" class="scan-bar"/>
+  </g>
+</svg>
